@@ -1,0 +1,19 @@
+<div class="m-2" *ngFor="let comment of comments">
+    <div id={{comment.commentId}} class="m-3 p-5"
+    [ngClass]=" !onUserProfile ? ' bg-primary bg-opacity-25': 'bg-light'" >
+    
+    
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3" *ngIf="comment.user.id == userId">
+        <button id={{comment.commentId}} (click)="delete($event)" type="button" class="btn-close me-md-2 btn-outline-danger" aria-label="Delete"></button>
+      </div>
+      <div *ngIf="onUserProfile" class="text-end">
+        NORAD ID: {{comment.satNoradId}}
+    </div> 
+      <div *ngIf="!onUserProfile">
+        <p class="fs-5 fw-bold">{{comment.user.username}}</p>
+    </div> 
+      
+
+      <p>{{comment.comment}}</p>
+      <p class="pt-3 fst-italic text-end">Date:{{comment.date}}</p>
+</div>

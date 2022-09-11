@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://api.n2yo.com/rest/v1",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {"^/api": ""}
+  }
+}

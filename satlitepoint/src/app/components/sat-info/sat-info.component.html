@@ -1,0 +1,114 @@
+<ng-container *ngTemplateOutlet="page === 'add' ? addz : main">
+</ng-container> 
+
+<ng-template #main>
+<div class="container-fluid">
+  <div class="card border-primary border-2 mb-3" style="max-width: 960px">
+    <div class="row g-0">
+      <div class="col-4 row align-items-center p-3">
+        <img *ngIf="satPicture"
+          [src]='satPicture'
+          class="img-fluid mx-auto rounded-start"
+          alt=""
+        />
+        <img *ngIf="!satPicture" src='../../../assets/sat.png'/>
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <div class="row justify-content-between">
+            <div class="col">
+              <h5 class="card-title text-start">{{ satname }}</h5>
+            </div>
+            <div class="col-3">
+              <h5 class="card-title text-end">{{ noradId }}</h5>
+            </div>
+          </div>
+
+          <p class="card-text m-0">Lat: {{ latitude }}</p>
+          <p class="card-text m-0">Lng: {{ longitude }}</p>
+          <p class="card-text m-0">Alt: {{ altitude + "KM" }}</p>
+          <p class="card-text m-0 mt-2">Azimuth: {{ azimuth }}</p>
+          <p class="card-text m-0">Elevation: {{ elevation }}</p>
+          <p class="card-text m-0 mt-2">
+            Right Accention: {{ rightAccention }}
+          </p>
+          <p class="card-text m-0">Declination: {{ declination }}</p>
+
+          <p class="cart-text m-0">Favorites: {{numFavorites}}</p>
+          
+          <!-- <button class="btn" [class.btn-success]="!isFavorite" [class.btn-secondary]="isFavorite" (click)="favorite()">{{isFavorite?"Unfav":"Fav"}}</button> -->
+
+          <p class="card-text text-end">
+            <small class="text-muted">{{
+              getTimestampMillis() | date: "medium"
+            }}</small>
+          </p>
+          <button class="btn btn-primary mx-4" [class.btn-success]="!isFavorite" [class.btn-secondary]="isFavorite" (click)="favorite()">{{isFavorite?"Unfav":"Favorite"}}</button>
+          
+          <button class="btn btn-primary" (click)="refreshData()">
+            Refresh
+          </button>
+          <button *ngIf="!isProfilePage()" class="btn btn-primary mx-4" (click)="toggleSidePanelEvent()">
+            Comments
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template>
+
+
+<ng-template #addz> 
+  <div class="container-fluid">
+    <div class="card border-primary border-2 mb-3" style="max-width: 960px">
+      <div class="row g-0">
+        <div class="col-4 row align-items-center p-3">
+          <img *ngIf="satPicture"
+            [src]='satPicture'
+            class="img-fluid mx-auto rounded-start"
+            alt=""
+          />
+          <img *ngIf="!satPicture" src='../../../assets/space-sat.jpg'/>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <div class="row justify-content-between">
+              <div class="col">
+                <h5 class="card-title text-start">{{ satname }}</h5>
+              </div>
+              <div class="col-3">
+                <h5 class="card-title text-end">{{ noradId }}</h5>
+              </div>
+            </div>
+  
+            <p class="card-text m-0">Lat: {{ latitude }}</p>
+            <p class="card-text m-0">Lng: {{ longitude }}</p>
+            <p class="card-text m-0">Alt: {{ altitude + "KM" }}</p>
+            <p class="card-text m-0 mt-2">Azimuth: {{ azimuth }}</p>
+            <p class="card-text m-0">Elevation: {{ elevation }}</p>
+            <p class="card-text m-0 mt-2">
+              Right Accention: {{ rightAccention }}
+            </p>
+            <p class="card-text m-0">Declination: {{ declination }}</p>
+            
+            <p class="card-text text-end">
+              <small class="text-muted">{{
+                getTimestampMillis() | date: "medium"
+              }}</small>
+            </p>
+            <button class="btn btn-primary" (click)="refreshData()">
+              Refresh
+            </button>
+            <button [disabled]="disabled" class="btn btn-success mx-4" id={{index}} (click)="addSat($event)">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Doesn't Work in Angular-->
+<!-- <script type="text/javascript" src="https://www.n2yo.com/js/widget-tracker.js"></script> -->

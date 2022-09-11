@@ -1,0 +1,32 @@
+<app-comments
+  [showSidePanel] = "showPanel" 
+  [sidenavTemplateRef]="navContent"
+  [direction]="right" 
+  [navWidth]="400" 
+  [duration]="0.5"
+  (closeEvent)="closeEvent($event)"></app-comments>
+
+<div class="main-container">
+  <app-nav-bar></app-nav-bar>
+<div class="row mx-auto">
+  <div class="form-group col-3 mt-1 w-auto">
+    <app-filter (filterEvent)="filter($event)"></app-filter>
+  </div> 
+  <div class="col">
+    <app-sat-list [page]="page" [term]="term" (showPanelMethodEvent)="showPanelMethod($event)"></app-sat-list>
+  </div>
+</div>
+</div>
+
+<ng-template #navContent>
+    <div class="text-start m-2 fs-4">
+      <span class="me-5">{{satname}}</span>
+      <span class="ms-5">{{satNoradId}}</span>
+    </div>
+    <textarea name="satComment" id="satComment" cols="30" rows="10" [(ngModel)]="message" placeholder="Share your thoughts about this satellite"></textarea>
+    <div class="d-grid gap-3 d-md-flex justify-content-md-end mt-2">
+      <button class="p-1 customeColorSubmit" type="submit" (click)="submit()">Submit</button>
+      <button class="p-1 me-5 customeColorCancel" type="submit" (click)="cancel()">Cancel</button>
+    </div>
+      <app-comment-cards *ngIf="showPanel" [satNoradId]="satNoradId" [comments]="comments" (deleteEvent)="delete($event)"></app-comment-cards>
+</ng-template>

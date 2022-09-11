@@ -1,0 +1,78 @@
+<div class="main-container">
+    <app-nav-bar></app-nav-bar>
+  <div class="row">
+    <div class="form-group col-3 mt-1 align-items-start">
+      <app-filter (filterEvent)="filter($event)"></app-filter>
+      <div class="form-check">
+        <input id="altitude" class="form-control mx-auto mt-2" type="text" placeholder=" altitude" pattern="-?[0-9]{0,2}[.]{0,1}[0-9]{0,2}">
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="form-check">
+        <input id="radius" class="form-control mx-auto mt-2" type="number" placeholder=" radius" min="0" max="90">
+        <div class="invalid-feedback"></div>
+      </div>
+      <!-- <input id="category" class="form-control mx-auto mt-2" type="text" placeholder=" category"> -->
+      <select id="category" class="form-select mx-auto mt-2" size="5" aria-label="size 7 select category">
+        <option selected value="0">All categories</option>
+        <option value="1">Brightest</option>
+        <option value="2">ISS</option>
+        <option value="3">Weather</option>
+        <option value="4">NOAA</option>
+        <option value="5">GOES</option>
+        <option value="6">Earth Resources</option>
+        <option value="7">Search & Rescue</option>
+        <option value="8">Disaster Monitoring</option>
+        <option value="9">Tracking and Data Relay Satellite System</option>
+        <option value="10">Geostationary</option>
+        <option value="11">Intelsat</option>
+        <option value="12">Gorizont</option>
+        <option value="13">Raduga</option>
+        <option value="14">Molniya</option>
+        <option value="15">Iridium</option>
+        <option value="16">Orbcomm</option>
+        <option value="17">Globalstar</option>
+        <option value="18">Amateur Radio</option>
+        <option value="19">Experimental</option>
+        <option value="20">GPS Operational</option>
+        <option value="21">Glonass Operational</option>
+        <option value="22">Galileo</option>
+        <option value="23">Satellite-Based Augmentation System</option>
+        <option value="24">Navy Navigation Satellite System</option>
+        <option value="25">Russian LEO Navigation</option>
+        <option value="26">Space & Earth Science</option>
+        <option value="27">Geodetic</option>
+        <option value="28">Engineering</option>
+        <option value="29">Education</option>
+        <option value="30">Military</option>
+        <option value="31">Radar Calibration</option>
+        <option value="32">CubeSats</option>
+        <option value="33">XM and Sirius</option>
+        <option value="34">TV</option>
+        <option value="35">Beidou Navigation System</option>
+        <option value="36">Yaogan</option>
+        <option value="37">Westford Needles</option>
+        <option value="38">Parus</option>
+        <option value="39">Strela</option>
+        <option value="40">Gonets</option>
+        <option value="41">Tsiklon</option>
+        <option value="42">Tsikada</option>
+        <option value="43">O3B Networks</option>
+        <option value="44">Tselina</option>
+        <option value="45">Celestis</option>
+        <option value="46">IRNSS</option>
+        <option value="47">QZSS</option>
+        <option value="48">Flock</option>
+        <option value="49">Lemur</option>
+        <option value="50">GPS Constellation</option>
+        <option value="51">Glonass Constellation</option>
+        <option value="52">Starlink</option>
+        <option value="53">OneWeb</option>
+        <option value="54">Chinese Space Station</option>
+      </select>
+      <button (click)="submit()" class="form-control mx-auto mt-2">Submit</button>
+    </div> 
+    <div class="col">
+      <app-sat-list [page]="page" [term]="term" [external]="external"></app-sat-list>
+    </div>
+  </div>
+  </div>

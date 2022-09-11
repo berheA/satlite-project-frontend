@@ -1,0 +1,27 @@
+
+.topnav{
+    width: 100%;
+    float: left;
+    margin: 0px;
+    border: 0px;
+    padding: 0;
+    background-color: black;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.topLink{
+    color: white;
+    padding: 15px;
+}
+.topbar{
+    background-color: rgb(2, 6, 44);
+    color: white;
+    text-align: center;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { background-color: darkgrey; }
+a:active { text-decoration: none; }

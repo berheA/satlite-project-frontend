@@ -1,0 +1,46 @@
+
+
+
+
+<form>
+    <h4>Register</h4>
+    <div>
+        <label class="label col-sm-3">firstname:</label>
+        <input type="text" name="firstName" [(ngModel)] = "firstName" class="form-control" placeholder="firstname" required>
+
+        <label class="label col-sm-3">lastname:</label>
+        <input type="text" name="lastname" [(ngModel)] = "lastName" class="form-control" placeholder="lastName" required>
+
+        <label class="label col-sm-3">password:</label>
+        <input type="password" name="password" [(ngModel)] = "password" class="form-control" placeholder="password" required>
+
+        <label class="label col-sm-3">username:</label>
+        <input type="text" name="username" [(ngModel)] = "username" class="form-control" placeholder="username" required>
+
+        <label class="label col-sm-3">email:</label>
+        <input type="text" id="email" name="email" [(ngModel)] = "email" class="form-control" placeholder="email" required pattern="[A-Za-z]{1,32}([A-Za-z]|[0-9]){0,32}@[A-Za-z]{1,121}([A-Za-z]|[0-9]){0,121}.[a-z]{3}">
+
+        <label class="label col-sm-3">About Me:</label>
+        <input type="text" name="AboutMe" [(ngModel)] = "AboutMe" class="form-control" placeholder="AboutMe" required>
+
+        <label class="label col-sm-3">latitude:</label>
+        <input type="text" name="latitude" [(ngModel)] = "latitude" class="form-control" placeholder="latitude" required>
+
+        <label class="label col-sm-3">longitude:</label>
+        <input type="text" name="longitude" [(ngModel)] = "longitude" class="form-control" placeholder="longitude" required>
+
+
+
+
+
+
+
+        <button (click)="registerUser($event)" class="btn btn-secondary">Register</button>
+        <button class="m-2 p-1" id="cancel" (click)="display($event)" type="submit">Cancel</button>
+
+
+    </div>
+</form>    
+    
+
+ 

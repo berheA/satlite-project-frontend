@@ -1,0 +1,37 @@
+<ng-container *ngTemplateOutlet="showExternal ? add : main">
+</ng-container> 
+
+<ng-template #main>
+  <div class="mt-2" *ngFor="let sat of filterSatList()">
+    <app-sat-info (togglePanelStateEvent)="togglePanelStateEvent($event)"
+      [satname]="sat.satName"
+      [satId]= "sat.satId"
+      [noradId]="sat.noradId"
+      [numFavorites]= "sat.numFavorites"
+      [satPicture]="sat.satPicture"
+      [isFavorite]="sat.favorite"
+    ></app-sat-info>
+  </div>
+</ng-template>
+
+
+<ng-template #add>
+  <div class="mt-2" *ngFor="let sat of filterSatList(); let i=index">
+    <app-sat-info (togglePanelStateEvent)="togglePanelStateEvent($event)" (addSatelliteEvent)="addSatellite($event)"
+      [satname]="sat.satname"
+      [satId]= "sat.satid"
+      [noradId]="sat.satid"
+      [numFavorites]= "0"
+      [satPicture]="''"
+      [isFavorite]="false"
+      [page]="page"
+      [index]=i
+    ></app-sat-info>
+  </div>
+</ng-template>
+
+
+
+
+ 
+ 

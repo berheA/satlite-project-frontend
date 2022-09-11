@@ -1,0 +1,47 @@
+<!-- side bar main wrapper -->
+<div class="side-nav-bar"
+    [ngClass]="{ 'side-nav-bar-collapsed': !(showSidePanel)}">
+
+    <!-- overlay -->
+    <div class="side-nav-bar-overlay" 
+    [ngStyle]="{ 'transition': 'background-color ' + duration + 's, visibility ' + duration + 's' }"
+    [ngClass]="{ 'side-nav-bar-overlay-collapsed': !(showSidePanel) }"
+        (click)="onSidebarClose()"></div>
+    
+    <!-- side bar-->
+    <div class="side-nav-bar-menu-container" 
+    [ngStyle]="getSideNavBarStyle(showSidePanel)" id="panel">
+        
+        <!-- close button -->
+        <div><span class="material-icons side-nav-bar-close" (click)="onSidebarClose()">x</span></div>
+
+        <!-- side bar content -->
+        <div class="side-nav-bar-content-container">
+            <ng-container *ngTemplateOutlet="sidenavTemplateRef"></ng-container>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="showSidePanel" class="side-nav-bar" id="panelContainer"
+[ngClass]="{ 'side-nav-bar-collapsed': !(showSidePanel) }">
+
+    <div *ngIf="showSidePanel" class="side-nav-bar-overlay" 
+    [ngStyle]="{ 'transition': 'background-color ' + duration + 's, visibility ' + duration + 's' }"
+    [ngClass]="{ 'side-nav-bar-overlay-collapsed': !(showSidePanel) }"
+        (click)="onSidebarClose()" id="overlayContainer">
+    </div>
+     -->
+    
+    <!-- side bar-->
+    <!-- <div class="side-nav-bar-menu-container" 
+    [ngStyle]="getSideNavBarStyle(showSidePanel)">
+        
+        
+        <div><span class="material-icons side-nav-bar-close" (click)="onSidebarClose()">x</span></div> -->
+
+        <!-- side bar content -->
+        <!-- <div class="side-nav-bar-content-container">
+            <ng-container *ngTemplateOutlet="sidenavTemplateRef"></ng-container>
+        </div>
+    </div>
+</div> -->

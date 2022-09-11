@@ -1,0 +1,42 @@
+<app-comments
+  [showSidePanel] = "showPanel" 
+  [sidenavTemplateRef]="navContent"
+  [direction]="right" 
+  [navWidth]="400" 
+  [duration]="0.5"
+  (closeEvent)="closeEvent($event)"></app-comments>
+
+
+<div class="main-container">
+  <app-nav-bar></app-nav-bar>
+<div class="row">
+  <div class="form-group col-2 mt-1 align-items-start">
+    <app-filter (filterEvent)="filter($event)"></app-filter>
+  </div> 
+  <div class="col">
+    <app-sat-list [term]="term" (showPanelMethodEvent)="showPanelMethod($event)"></app-sat-list>
+  </div>
+</div>
+</div>
+
+<ng-template #navContent>
+    <div class="text-start m-2 fs-4">
+      <span class="me-5">{{satname}}</span>
+      <span class="ms-5">{{satNoradId}}</span>
+    </div>
+    <textarea name="satComment" id="satComment" cols="30" rows="10" [(ngModel)]="message" placeholder="Share your thoughts about this satellite"></textarea>
+    <div class="d-grid gap-3 d-md-flex justify-content-md-end mt-2">
+      <button class="p-1 customeColorSubmit" type="submit" (click)="submit()">Submit</button>
+      <button class="p-1 me-5 customeColorCancel" type="submit" (click)="cancel()">Cancel</button>
+    </div>
+    <app-comment-cards *ngIf="showPanel" [satNoradId]="satNoradId" [comments]="comments"></app-comment-cards>
+    <!-- <div class="m-2" *ngFor="let comment of getComments()">
+      <div class="m-3 p-5 bg-primary bg-opacity-25">
+        <p class="fs-5 fw-bold">{{comment.user.username}}</p>
+        <p>{{comment.description}}</p>
+        <p class="pt-3 fst-italic text-end">Date:{{comment.date}}</p>
+      </div> 
+      
+        
+    </div>-->
+</ng-template>
